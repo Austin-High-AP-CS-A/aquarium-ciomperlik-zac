@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Main{
     public static void main(String[] args){
@@ -15,6 +16,19 @@ public class Main{
         Fish shad1 = new Fish("Shad1",54,80); //8
         Fish shad2 = new Fish("Shad2",54,80); //9
         Fish anglerfish = new Fish("Anglerfish",34, 39);
+
+        ArrayList<Fish> fishies = new ArrayList<>();
+        fishies.add(catfish1);
+        fishies.add(catfish2);
+        fishies.add(perch1);
+        fishies.add(perch2);
+        fishies.add(trout1);
+        fishies.add(trout2);
+        fishies.add(minnow1);
+        fishies.add(minnow2);
+        fishies.add(shad1);
+        fishies.add(shad2);
+        fishies.add(anglerfish);
 
         //Fish Friends
         // Catfish are compatible with catfish and perch
@@ -65,5 +79,21 @@ public class Main{
         shad2.addFriend(shad1);
         shad2.addFriend(minnow1);
         shad2.addFriend(minnow2);
+
+        Aquarium aquarium = new Aquarium();
+
+        int minMax = fishies.stream().mapToInt(f -> f.maxTemp()).min().getAsInt();
+        int maxMin = fishies.stream().mapToInt(f -> f.minTemp()).max().getAsInt();
+
+        for (int i = minMax; i < maxMin + 5; i += 5) {
+            aquarium.addTank(new Tank(i));
+        }
+
+        fishies = aquarium.addFish(fishies);
+        System.out.println(fishies.size());
+
+        for (Tank tank : aquarium.geTanks()) {
+            System.out.println(tank.getFish().size());
+        }
     }
 }
