@@ -80,6 +80,7 @@ public class Main{
         shad2.addFriend(minnow1);
         shad2.addFriend(minnow2);
 
+        // Create the aquarium and tanks
         Aquarium aquarium = new Aquarium();
 
         int minMax = fishies.stream().mapToInt(f -> f.maxTemp()).min().getAsInt();
@@ -90,10 +91,22 @@ public class Main{
         }
 
         fishies = aquarium.addFish(fishies);
-        System.out.println(fishies.size());
 
-        for (Tank tank : aquarium.geTanks()) {
-            System.out.println(tank.getFish().size());
+        for (int i = 0; i < aquarium.getTanks().size(); i++) {
+            Tank tank = aquarium.getTanks().get(i);
+
+            System.out.println("Tank: " + (i + 1));
+            System.out.println("    Temp: " + tank.temp());
+
+            if (tank.getFish().size() != 0) {
+                System.out.println("\n    Fish:");
+
+                for (Fish fish : tank.getFish()) {
+                    System.out.println("        " + fish.type());
+                }
+            }
+
+            System.out.println("");
         }
     }
 }

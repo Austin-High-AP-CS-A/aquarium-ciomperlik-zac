@@ -12,6 +12,11 @@ public class Fish{
         this.maxTemp = mxT;
         friends = new ArrayList<Fish>();
     }
+
+    public String type() {
+        return type;
+    }
+
     /**
      * @return the minimum temperature this fish can tolerate
      * Postcondition: minTemp() <= maxTemp()

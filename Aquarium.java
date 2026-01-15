@@ -8,7 +8,7 @@ public class Aquarium {
         this.tanks = new ArrayList<Tank>();
     }
 
-    public ArrayList<Tank> geTanks() {
+    public ArrayList<Tank> getTanks() {
         return tanks;
     }
 
