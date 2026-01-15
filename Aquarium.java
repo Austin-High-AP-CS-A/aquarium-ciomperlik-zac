@@ -89,4 +89,27 @@ public class Aquarium {
 
         return false;
     }
+
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < tanks.size(); i++) {
+            Tank tank = tanks.get(i);
+
+            builder.append("\nTank " + (i + 1) + ": ");
+            builder.append("\n    Temp: " + tank.temp());
+
+            if (tank.getFish().size() != 0) {
+                builder.append("\n    Fish:");
+
+                for (Fish fish : tank.getFish()) {
+                    builder.append("\n        " + fish.type());
+                }
+            }
+
+            builder.append("\n");
+        }
+
+        return builder.toString();
+    }
 }

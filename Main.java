@@ -92,21 +92,6 @@ public class Main{
 
         fishies = aquarium.addFish(fishies);
 
-        for (int i = 0; i < aquarium.getTanks().size(); i++) {
-            Tank tank = aquarium.getTanks().get(i);
-
-            System.out.println("Tank: " + (i + 1));
-            System.out.println("    Temp: " + tank.temp());
-
-            if (tank.getFish().size() != 0) {
-                System.out.println("\n    Fish:");
-
-                for (Fish fish : tank.getFish()) {
-                    System.out.println("        " + fish.type());
-                }
-            }
-
-            System.out.println("");
-        }
+        System.out.println(aquarium);
     }
 }
